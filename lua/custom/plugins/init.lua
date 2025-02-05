@@ -4,10 +4,10 @@
 -- See the kickstart.nvim README for more information
 
 vim.opt.relativenumber = true
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 -- diffview
-vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen)
-vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewOpen)
+vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
+vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewOpen, { desc = 'Close Diffview' })
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -47,5 +47,33 @@ return {
   },
   {
     'github/copilot.vim',
+  },
+  {
+    'mfussenegger/nvim-dap',
+  },
+  {
+    'mfussenegger/nvim-dap',
+    config = function()
+      require('dap').adapters['pwa-node'] = {
+        type = 'server',
+        host = 'localhost',
+        port = '${port}',
+        executable = {
+          command = 'node',
+          -- 💀 Make sure to update this path to point to your installation
+          args = { '/Users/michaelcarver/.config/nvim/js-debug/src/cdapDebugServer.js', '${port}' },
+        },
+      }
+
+      require('dap').configurations.javascript = {
+        {
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch file',
+          program = '${file}',
+          cwd = '${workspaceFolder}',
+        },
+      }
+    end,
   },
 }
