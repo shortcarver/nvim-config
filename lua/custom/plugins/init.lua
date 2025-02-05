@@ -4,6 +4,7 @@
 -- See the kickstart.nvim README for more information
 
 vim.opt.relativenumber = true
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
