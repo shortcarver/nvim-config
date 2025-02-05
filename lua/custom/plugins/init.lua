@@ -5,6 +5,9 @@
 
 vim.opt.relativenumber = true
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+-- diffview
+vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen)
+vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewOpen)
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -24,11 +27,18 @@ return {
   {
     'tpope/vim-fugitive',
   },
+  -- {
+  --   'rose-pine/neovim',
+  --   name = 'rose-pine',
+  --   config = function()
+  --     vim.cmd 'colorscheme rose-pine'
+  --   end,
+  -- },
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    'Mofiqul/vscode.nvim',
+    name = 'vscode',
     config = function()
-      vim.cmd 'colorscheme rose-pine'
+      vim.cmd 'colorscheme vscode'
     end,
   },
   {
