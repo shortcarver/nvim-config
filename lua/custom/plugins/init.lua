@@ -7,7 +7,7 @@ vim.opt.relativenumber = true
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 -- diffview
 vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
-vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewOpen, { desc = 'Close Diffview' })
+vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewClose, { desc = 'Close Diffview' })
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
