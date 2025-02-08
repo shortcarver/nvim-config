@@ -53,27 +53,30 @@ return {
   },
   {
     'mfussenegger/nvim-dap',
-    config = function()
-      require('dap').adapters['pwa-node'] = {
-        type = 'server',
-        host = 'localhost',
-        port = '${port}',
-        executable = {
-          command = 'node',
-          -- 💀 Make sure to update this path to point to your installation
-          args = { '/Users/michaelcarver/.config/nvim/js-debug/src/cdapDebugServer.js', '${port}' },
-        },
-      }
+    --  config = function()
+    --    require('dap').adapters['pwa-node'] = {
+    --      type = 'server',
+    --      host = 'localhost',
+    --      port = '${port}',
+    --      executable = {
+    --        command = 'node',
+    --        -- 💀 Make sure to update this path to point to your installation
+    --        args = { '/Users/michaelcarver/.config/nvim/js-debug/src/cdapDebugServer.js', '${port}' },
+    --      },
+    --    }
 
-      require('dap').configurations.javascript = {
-        {
-          type = 'pwa-node',
-          request = 'launch',
-          name = 'Launch file',
-          program = '${file}',
-          cwd = '${workspaceFolder}',
-        },
-      }
-    end,
+    --    require('dap').configurations.javascript = {
+    --      {
+    --        type = 'pwa-node',
+    --        request = 'launch',
+    --        name = 'Launch file',
+    --        program = '${file}',
+    --        cwd = '${workspaceFolder}',
+    --      },
+    --    }
+    --  end,
+  },
+  {
+    'David-Kunz/jester',
   },
 }
