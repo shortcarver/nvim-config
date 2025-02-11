@@ -52,33 +52,58 @@ return {
   },
   {
     'mfussenegger/nvim-dap',
+    name = 'dap',
+  },
+  --  {
+  --    'mxsdev/nvim-dap-vscode-js',
+  --  },
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
   },
   {
-    'mfussenegger/nvim-dap',
-    --  config = function()
-    --    require('dap').adapters['pwa-node'] = {
-    --      type = 'server',
-    --      host = 'localhost',
-    --      port = '${port}',
-    --      executable = {
-    --        command = 'node',
-    --        -- 💀 Make sure to update this path to point to your installation
-    --        args = { '/Users/michaelcarver/.config/nvim/js-debug/src/cdapDebugServer.js', '${port}' },
-    --      },
-    --    }
-
-    --    require('dap').configurations.javascript = {
-    --      {
-    --        type = 'pwa-node',
-    --        request = 'launch',
-    --        name = 'Launch file',
-    --        program = '${file}',
-    --        cwd = '${workspaceFolder}',
-    --      },
-    --    }
-    --  end,
+    'mxsdev/nvim-dap-vscode-js',
   },
   {
-    'David-Kunz/jester',
+    'microsoft/vscode-js-debug',
+    opt = true,
+    run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
+  },
+  {
+    'folke/trouble.nvim',
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>xx',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Diagnostics (Trouble)',
+      },
+      {
+        '<leader>xX',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = 'Buffer Diagnostics (Trouble)',
+      },
+      {
+        '<leader>cs',
+        '<cmd>Trouble symbols toggle focus=false<cr>',
+        desc = 'Symbols (Trouble)',
+      },
+      {
+        '<leader>cl',
+        '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+        desc = 'LSP Definitions / references / ... (Trouble)',
+      },
+      {
+        '<leader>xL',
+        '<cmd>Trouble loclist toggle<cr>',
+        desc = 'Location List (Trouble)',
+      },
+      {
+        '<leader>xQ',
+        '<cmd>Trouble qflist toggle<cr>',
+        desc = 'Quickfix List (Trouble)',
+      },
+    },
   },
 }
