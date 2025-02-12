@@ -50,20 +50,13 @@ return {
   {
     'github/copilot.vim',
   },
-  {
-    'mfussenegger/nvim-dap',
-  },
-  --  {
-  --    'mxsdev/nvim-dap-vscode-js',
-  --  },
-  {
-    'rcarriga/nvim-dap-ui',
-    dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
-  },
-  {
-    'mxsdev/nvim-dap-vscode-js',
-  },
-  { 'microsoft/vscode-js-debug', build = 'npm i && npm run compile vsDebugServerBundle && rm -rf out && mv -f dist out' },
+  --   {
+  --     'rcarriga/nvim-dap-ui',
+  --     dependencies = {
+  --       'mfussenegger/nvim-dap',
+  --       'nvim-neotest/nvim-nio',
+  --     },
+  --   },
   {
     'folke/trouble.nvim',
     opts = {}, -- for default options, refer to the configuration section for custom setup.
