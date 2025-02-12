@@ -52,7 +52,6 @@ return {
   },
   {
     'mfussenegger/nvim-dap',
-    name = 'dap',
   },
   --  {
   --    'mxsdev/nvim-dap-vscode-js',
@@ -64,11 +63,7 @@ return {
   {
     'mxsdev/nvim-dap-vscode-js',
   },
-  {
-    'microsoft/vscode-js-debug',
-    opt = true,
-    run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
-  },
+  { 'microsoft/vscode-js-debug', build = 'npm i && npm run compile vsDebugServerBundle && rm -rf out && mv -f dist out' },
   {
     'folke/trouble.nvim',
     opts = {}, -- for default options, refer to the configuration section for custom setup.

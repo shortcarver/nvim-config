@@ -42,7 +42,7 @@ for _, language in ipairs(js_based_languages) do
       name = 'Express App: Attach to Node',
       type = 'pwa-node',
       address = 'localhost',
-      port = '4229',
+      port = 4229,
       request = 'attach',
       restart = true,
       localRoot = '${workspaceFolder}',
@@ -50,7 +50,7 @@ for _, language in ipairs(js_based_languages) do
       executable = {
         command = 'node',
         -- 💀 Make sure to update this path to point to your installation
-        args = { '/~/.local/share/nvim/lazy/vscode-js-debug/src/dapDebugServer.js', '4229' },
+        args = { '/~/.local/share/nvim/lazy/vscode-js-debug/src/dapDebugServer.js', 4229 },
       },
     },
     {
