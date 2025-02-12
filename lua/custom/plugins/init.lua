@@ -37,6 +37,9 @@ return {
   --   end,
   -- },
   {
+    'nvim-tree/nvim-web-devicons',
+  },
+  {
     'Mofiqul/vscode.nvim',
     name = 'vscode',
     config = function()
