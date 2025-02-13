@@ -78,6 +78,7 @@ return {
           terminal_cmd = ':split | terminal',
         }
       end)
+
       vim.keymap.set('n', '<leader>td', function()
         jester.debug {
           -- cmd = 'npm run test:unit -- --selectProjects api --runTestsByPath "$file" -t "$result"',
