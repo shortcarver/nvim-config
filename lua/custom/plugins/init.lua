@@ -61,6 +61,37 @@ return {
   --     },
   --   },
   {
+    'David-Kunz/jester',
+
+    config = function()
+      local jester = require 'jester'
+
+      jester.setup {
+        regexStartEnd = false,
+      }
+
+      vim.keymap.set('n', '<leader>tr', function()
+        jester.run {
+          cmd = 'npm run test:unit -- --selectProjects api --runTestsByPath "$file" -t "$result"',
+          regexStartEnd = false,
+          escapeRegex = false,
+          terminal_cmd = ':split | terminal',
+        }
+      end)
+      vim.keymap.set('n', '<leader>td', function()
+        jester.debug {
+          -- cmd = 'npm run test:unit -- --selectProjects api --runTestsByPath "$file" -t "$result"',
+          regexStartEnd = false,
+          escapeRegex = false,
+          terminal_cmd = ':split | terminal',
+          dap = {
+            type = 'pwa-node',
+          },
+        }
+      end)
+    end,
+  },
+  {
     'folke/trouble.nvim',
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = 'Trouble',
