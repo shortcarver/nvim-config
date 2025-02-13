@@ -238,4 +238,16 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 </details>
 
 ## Debugger installation
-For typescript
+For typescript debugging: `https://github.com/mxsdev/nvim-dap-vscode-js`
+
+Find the vscode-js-debug folder `~/.local/share/nvim/lazy/vscode-js-debug`
+Run:
+```
+nvm install 16.14.2
+nvm use 16.14.2
+npm install --legacy-peer-deps
+npx gulp vsDebugServerBundle
+mv dist out
+```
+Check the `.ci/pipeline.yml` for the latest version of node
+Sometimes version 20 works, but not 16. This is a bit of a mess.
