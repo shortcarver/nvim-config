@@ -87,6 +87,7 @@ return {
           terminal_cmd = ':split | terminal',
           dap = {
             type = 'pwa-node',
+            sourceMaps = true,
           },
         }
       end)

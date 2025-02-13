@@ -138,6 +138,7 @@ return {
         restart = true,
         localRoot = '${workspaceFolder}',
         remoteRoot = '/home/node/app',
+        sourceMaps = true,
       },
     }
 
