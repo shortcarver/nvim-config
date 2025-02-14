@@ -139,6 +139,7 @@ return {
         localRoot = '${workspaceFolder}',
         remoteRoot = '/home/node/app',
         sourceMaps = true,
+        skipFiles = { '<node_internals>/**' },
       },
     }
 
