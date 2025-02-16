@@ -72,7 +72,7 @@ return {
 
       vim.keymap.set('n', '<leader>tr', function()
         jester.run {
-          cmd = 'npm run test:unit -- --selectProjects api --runTestsByPath "$file" -t "$result"',
+          cmd = 'npm run test:unit -- --runTestsByPath "$file" -t "$result"',
           regexStartEnd = false,
           escapeRegex = false,
           terminal_cmd = ':split | terminal',

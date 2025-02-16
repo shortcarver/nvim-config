@@ -78,6 +78,13 @@ return {
       end,
       desc = 'Debug: See last session result.',
     },
+    {
+      '<leader>de',
+      function()
+        require('dapui').eval()
+      end,
+      desc = 'Debug: Eval',
+    },
   },
   config = function()
     local dap = require 'dap'
