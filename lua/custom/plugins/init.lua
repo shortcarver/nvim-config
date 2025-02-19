@@ -4,7 +4,10 @@
 -- See the kickstart.nvim README for more information
 
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 999
+vim.opt.scrolloff = 50
+vim.opt.cursorline = true
+vim.opt.colorcolumn = '80,120'
+
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 -- diffview
 vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
