@@ -4,6 +4,7 @@
 -- See the kickstart.nvim README for more information
 
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 999
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 -- diffview
 vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
