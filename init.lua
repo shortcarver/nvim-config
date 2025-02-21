@@ -558,6 +558,13 @@ require('lazy').setup({
             },
           },
         },
+        eslint = {
+          settings = {
+            eslint = {
+              autoFixOnSave = true,
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
