@@ -7,6 +7,7 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 50
 vim.opt.cursorline = true
 vim.opt.colorcolumn = '80,120'
+vim.opt.tabstop = 4
 
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 -- diffview
