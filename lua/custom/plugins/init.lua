@@ -84,6 +84,15 @@ return {
         }
       end)
 
+      vim.keymap.set('n', '<leader>tf', function()
+        jester.run {
+          cmd = 'npm run test:unit -- --runTestsByPath "$file"',
+          regexStartEnd = false,
+          escapeRegex = false,
+          terminal_cmd = ':split | terminal',
+        }
+      end)
+
       vim.keymap.set('n', '<leader>td', function()
         jester.debug {
           -- cmd = 'npm run test:unit -- --selectProjects api --runTestsByPath "$file" -t "$result"',
