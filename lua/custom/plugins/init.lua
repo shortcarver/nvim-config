@@ -4,7 +4,7 @@
 -- See the kickstart.nvim README for more information
 
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 50
+vim.opt.scrolloff = 10
 vim.opt.cursorline = true
 vim.opt.colorcolumn = '80,120'
 vim.opt.tabstop = 4
