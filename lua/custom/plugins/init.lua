@@ -147,4 +147,11 @@ return {
   {
     'wellle/context.vim',
   },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+  },
+  {
+    'kevinhwang91/nvim-ufo',
+  },
 }
