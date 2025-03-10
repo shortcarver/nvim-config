@@ -2,7 +2,6 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 10
 vim.opt.cursorline = true
@@ -11,6 +10,16 @@ vim.opt.tabstop = 4
 
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+-- autocmd TextChanged,TextChangedI <buffer> silent write
+-- vim.api.nvim_create_autocmd({ 'TextChanged', 'TextChangedI' }, {
+--   buffer = 0,
+--   callback = function(args)
+--     vim.cmd 'silent write'
+--     print(args)
+--   end,
+-- })
+
 -- diffview
 vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
 vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewClose, { desc = 'Close Diffview' })
