@@ -876,6 +876,7 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
   require 'custom.plugins.init',
   require 'custom.plugins.debug',
+  require 'custom.plugins.oil',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
