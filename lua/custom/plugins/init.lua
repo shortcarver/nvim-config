@@ -24,7 +24,7 @@ vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent director
 vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
 vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewClose, { desc = 'Close Diffview' })
 
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+-- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
