@@ -8,6 +8,8 @@ vim.opt.cursorline = true
 vim.opt.colorcolumn = '80,120'
 vim.opt.tabstop = 4
 
+vim.opt.wrap = false
+
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
