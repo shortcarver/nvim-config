@@ -98,7 +98,7 @@ return {
   --     },
   --   },
   {
-    'David-Kunz/jester',
+    'shortcarver/jester',
 
     config = function()
       local jester = require 'jester'
@@ -106,6 +106,14 @@ return {
       jester.setup {
         regexStartEnd = false,
       }
+
+      vim.keymap.set('n', '<leader>ty', function()
+        jester.yank {
+          cmd = 'npm run test:unit -- --runTestsByPath "$file" -t "$result"',
+          regexStartEnd = false,
+          escapeRegex = false,
+        }
+      end)
 
       vim.keymap.set('n', '<leader>tr', function()
         jester.run {
