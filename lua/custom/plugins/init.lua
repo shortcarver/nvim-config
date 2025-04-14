@@ -13,6 +13,9 @@ vim.opt.wrap = false
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
+-- copy current path to clipboard
+vim.keymap.set('n', '<leader>yp', "<CMD>let @+ = expand('%:p')<CR>", { desc = '[Y]ank current [p]ath to clipboard' })
+
 -- autocmd TextChanged,TextChangedI <buffer> silent write
 -- vim.api.nvim_create_autocmd({ 'TextChanged', 'TextChangedI' }, {
 --   buffer = 0,
@@ -39,6 +42,17 @@ vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'Move focus
 vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>', { desc = 'Move focus to the upper window' })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = 'vscode',
+  -- group = ...,
+  callback = function()
+    vim.api.nvim_set_hl(0, 'CopilotSuggestion', {
+      fg = '#55FF55',
+      ctermfg = 8,
+      force = true,
+    })
+  end,
+})
 return {
   {
     'sindrets/diffview.nvim',
@@ -110,6 +124,14 @@ return {
       vim.keymap.set('n', '<leader>ty', function()
         jester.yank {
           cmd = 'npm run test:unit -- --runTestsByPath "$file" -t "$result"',
+          regexStartEnd = false,
+          escapeRegex = false,
+        }
+      end)
+
+      vim.keymap.set('n', '<leader>tY', function()
+        jester.yank {
+          cmd = 'npm run test:unit -- --runTestsByPath "$file"',
           regexStartEnd = false,
           escapeRegex = false,
         }
