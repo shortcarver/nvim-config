@@ -127,7 +127,7 @@ return {
           regexStartEnd = false,
           escapeRegex = false,
         }
-      end)
+      end, { desc = 'Yank Test Command' })
 
       vim.keymap.set('n', '<leader>tY', function()
         jester.yank {
@@ -135,7 +135,7 @@ return {
           regexStartEnd = false,
           escapeRegex = false,
         }
-      end)
+      end, { desc = 'Yank test file command' })
 
       vim.keymap.set('n', '<leader>tr', function()
         jester.run {
