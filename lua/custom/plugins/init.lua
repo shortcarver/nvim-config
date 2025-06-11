@@ -42,6 +42,8 @@ vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'Move focus
 vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<leader>cc', vim.cmd.CopilotChatOpen, { desc = '[C]opilot [C]hat' })
+
 vim.api.nvim_create_autocmd('ColorScheme', {
   pattern = 'vscode',
   -- group = ...,
@@ -103,6 +105,18 @@ return {
   },
   {
     'github/copilot.vim',
+  },
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      { 'github/copilot.vim' }, -- or zbirenbaum/copilot.lua
+      { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log and async functions
+    },
+    build = 'make tiktoken', -- Only on MacOS or Linux
+    opts = {
+      -- See Configuration section for options
+    },
+    -- See Commands section for default commands if you want to lazy load on them
   },
   --   {
   --     'rcarriga/nvim-dap-ui',
