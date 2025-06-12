@@ -42,7 +42,9 @@ vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'Move focus
 vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<leader>cc', vim.cmd.CopilotChatOpen, { desc = '[C]opilot [C]hat' })
+vim.keymap.set('n', '<leader>cc', vim.cmd.CopilotChatOpen, { desc = '[C]opilot [C]hat Open' })
+vim.keymap.set('n', '<leader>cq', vim.cmd.CopilotChatClose, { desc = '[C]opilot [Q]uit Chat' })
+vim.keymap.set('n', '<leader>cr', vim.cmd.CopilotChatReset, { desc = '[C]opilot [R]eset Chat' })
 
 vim.api.nvim_create_autocmd('ColorScheme', {
   pattern = 'vscode',
