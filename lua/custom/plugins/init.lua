@@ -222,9 +222,9 @@ return {
       },
     },
   },
-  {
-    'wellle/context.vim',
-  },
+  -- {
+  --   'wellle/context.vim',
+  -- },
   {
     'numToStr/Comment.nvim',
     opts = {},
