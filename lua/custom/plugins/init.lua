@@ -10,6 +10,9 @@ vim.opt.tabstop = 4
 
 vim.opt.wrap = false
 
+vim.api.nvim_create_user_command('Q', 'q', { nargs = 0 })
+vim.api.nvim_create_user_command('W', 'w', { nargs = 0 })
+
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open File Explorer' })
 vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
