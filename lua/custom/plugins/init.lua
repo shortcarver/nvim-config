@@ -49,6 +49,15 @@ vim.keymap.set('n', '<leader>cc', vim.cmd.CopilotChatOpen, { desc = '[C]opilot [
 vim.keymap.set('n', '<leader>cq', vim.cmd.CopilotChatClose, { desc = '[C]opilot [Q]uit Chat' })
 vim.keymap.set('n', '<leader>cr', vim.cmd.CopilotChatReset, { desc = '[C]opilot [R]eset Chat' })
 
+-- Code folding config
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldcolumn = '0'
+vim.opt.foldtext = ''
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
+vim.opt.foldnestmax = 4
+
 vim.api.nvim_create_autocmd('ColorScheme', {
   pattern = 'vscode',
   -- group = ...,
