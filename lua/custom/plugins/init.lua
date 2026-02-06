@@ -17,7 +17,13 @@ vim.api.nvim_create_user_command('W', 'w', { nargs = 0 })
 vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 -- copy current path to clipboard
-vim.keymap.set('n', '<leader>yp', "<CMD>let @+ = expand('%:p')<CR>", { desc = '[Y]ank current [p]ath to clipboard' })
+vim.keymap.set('n', '<leader>yp', function()
+  local p = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
+  if not (p:match('^%.') or p:match('^/')) then
+    p = './' .. p
+  end
+  vim.fn.setreg('+', p)
+end, { desc = '[Y]ank current [p]ath to clipboard (relative to cwd, prefixed with ./)' })
 
 -- autocmd TextChanged,TextChangedI <buffer> silent write
 -- vim.api.nvim_create_autocmd({ 'TextChanged', 'TextChangedI' }, {
@@ -152,16 +158,25 @@ return {
       }
 
       vim.keymap.set('n', '<leader>ty', function()
+        local rel = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
+        if not (rel:match('^%.') or rel:match('^/')) then
+          rel = './' .. rel
+        end
         jester.yank {
-          cmd = 'npm run test:unit -- --runTestsByPath "$file" -t "$result"',
+          cmd = 'npm run test:unit -- --runTestsByPath "' .. rel .. '" -t "$result"',
           regexStartEnd = false,
           escapeRegex = false,
         }
       end, { desc = 'Yank Test Command' })
 
       vim.keymap.set('n', '<leader>tY', function()
+        local rel = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
+        if not (rel:match('^%.') or rel:match('^/')) then
+          rel = './' .. rel
+        end
+
         jester.yank {
-          cmd = 'npm run test:unit -- --runTestsByPath "$file"',
+          cmd = 'npm run test:unit -- --runTestsByPath "' .. rel .. '"',
           regexStartEnd = false,
           escapeRegex = false,
         }
