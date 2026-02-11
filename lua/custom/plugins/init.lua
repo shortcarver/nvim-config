@@ -18,8 +18,8 @@ vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent director
 
 -- copy current path to clipboard
 vim.keymap.set('n', '<leader>yp', function()
-  local p = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
-  if not (p:match('^%.') or p:match('^/')) then
+  local p = vim.fn.fnamemodify(vim.fn.expand '%:p', ':.')
+  if not (p:match '^%.' or p:match '^/') then
     p = './' .. p
   end
   vim.fn.setreg('+', p)
@@ -37,6 +37,7 @@ end, { desc = '[Y]ank current [p]ath to clipboard (relative to cwd, prefixed wit
 -- diffview
 vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
 vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewClose, { desc = 'Close Diffview' })
+vim.keymap.set('n', '<leader>dm', '<cmd> DiffviewOpen main<CR>', { desc = 'Open Diffview against main' })
 
 -- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 
@@ -158,8 +159,8 @@ return {
       }
 
       vim.keymap.set('n', '<leader>ty', function()
-        local rel = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
-        if not (rel:match('^%.') or rel:match('^/')) then
+        local rel = vim.fn.fnamemodify(vim.fn.expand '%:p', ':.')
+        if not (rel:match '^%.' or rel:match '^/') then
           rel = './' .. rel
         end
         jester.yank {
@@ -170,8 +171,8 @@ return {
       end, { desc = 'Yank Test Command' })
 
       vim.keymap.set('n', '<leader>tY', function()
-        local rel = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
-        if not (rel:match('^%.') or rel:match('^/')) then
+        local rel = vim.fn.fnamemodify(vim.fn.expand '%:p', ':.')
+        if not (rel:match '^%.' or rel:match '^/') then
           rel = './' .. rel
         end
 
@@ -254,10 +255,11 @@ return {
   -- {
   --   'wellle/context.vim',
   -- },
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-  },
+  -- Adds auto commenting for new lines
+  -- {
+  --   'numToStr/Comment.nvim',
+  --   opts = {},
+  -- },
   {
     'kevinhwang91/nvim-ufo',
   },
