@@ -251,3 +251,24 @@ mv dist out
 ```
 Check the `.ci/pipeline.yml` for the latest version of node
 Sometimes version 20 works, but not 16. This is a bit of a mess.
+
+## Clipboard on Cachyos
+If the clipboard isn't working out of the box, uninstall the one from the OS 
+repositories, then install the binary from neovim.
+
+Then, you need to make sure you have the right clipboard provider installed.
+
+To figure out which first run:
+```sh
+echo $XDG_SESSION_TYPE
+```
+
+If wayland:
+```sh
+sudo pacman -S wl-clipboard
+```
+
+If X11
+```sh
+sudo pacman -S xclip
+```
