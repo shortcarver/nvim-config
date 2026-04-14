@@ -49,6 +49,7 @@ end, { desc = '[Y]ank current [p]ath to clipboard (relative to cwd, prefixed wit
 -- diffview
 vim.keymap.set('n', '<leader>do', vim.cmd.DiffviewOpen, { desc = 'Open Diffview' })
 vim.keymap.set('n', '<leader>dc', vim.cmd.DiffviewClose, { desc = 'Close Diffview' })
+vim.keymap.set('n', '<leader>dm', '<cmd>DiffviewOpen main<CR>', { desc = 'Open Diffview against main' })
 
 -- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 
@@ -140,18 +141,18 @@ return {
   {
     'github/copilot.vim',
   },
-  {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    dependencies = {
-      { 'github/copilot.vim' }, -- or zbirenbaum/copilot.lua
-      { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log and async functions
-    },
-    build = 'make tiktoken', -- Only on MacOS or Linux
-    opts = {
-      -- See Configuration section for options
-    },
-    -- See Commands section for default commands if you want to lazy load on them
-  },
+  -- {
+  --   'CopilotC-Nvim/CopilotChat.nvim',
+  --   dependencies = {
+  --     { 'github/copilot.vim' }, -- or zbirenbaum/copilot.lua
+  --     { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log and async functions
+  --   },
+  --   build = 'make tiktoken', -- Only on MacOS or Linux
+  --   opts = {
+  --     -- See Configuration section for options
+  --   },
+  --   -- See Commands section for default commands if you want to lazy load on them
+  -- },
   --   {
   --     'rcarriga/nvim-dap-ui',
   --     dependencies = {
@@ -266,10 +267,11 @@ return {
   -- {
   --   'wellle/context.vim',
   -- },
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-  },
+  -- Adds auto commenting for new lines
+  -- {
+  --   'numToStr/Comment.nvim',
+  --   opts = {},
+  -- },
   {
     'kevinhwang91/nvim-ufo',
   },
