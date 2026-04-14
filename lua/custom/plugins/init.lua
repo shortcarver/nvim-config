@@ -8,6 +8,18 @@ vim.opt.cursorline = true
 vim.opt.colorcolumn = '80,120'
 vim.opt.tabstop = 4
 
+vim.g.clipboard = {
+  name = 'osc52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+    ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+    ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+  },
+}
+
 vim.opt.wrap = false
 
 vim.api.nvim_create_user_command('Q', 'q', { nargs = 0 })
@@ -18,8 +30,8 @@ vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent director
 
 -- copy current path to clipboard
 vim.keymap.set('n', '<leader>yp', function()
-  local p = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
-  if not (p:match('^%.') or p:match('^/')) then
+  local p = vim.fn.fnamemodify(vim.fn.expand '%:p', ':.')
+  if not (p:match '^%.' or p:match '^/') then
     p = './' .. p
   end
   vim.fn.setreg('+', p)
@@ -158,8 +170,8 @@ return {
       }
 
       vim.keymap.set('n', '<leader>ty', function()
-        local rel = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
-        if not (rel:match('^%.') or rel:match('^/')) then
+        local rel = vim.fn.fnamemodify(vim.fn.expand '%:p', ':.')
+        if not (rel:match '^%.' or rel:match '^/') then
           rel = './' .. rel
         end
         jester.yank {
@@ -170,8 +182,8 @@ return {
       end, { desc = 'Yank Test Command' })
 
       vim.keymap.set('n', '<leader>tY', function()
-        local rel = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
-        if not (rel:match('^%.') or rel:match('^/')) then
+        local rel = vim.fn.fnamemodify(vim.fn.expand '%:p', ':.')
+        if not (rel:match '^%.' or rel:match '^/') then
           rel = './' .. rel
         end
 
