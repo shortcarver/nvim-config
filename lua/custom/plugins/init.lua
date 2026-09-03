@@ -140,6 +140,7 @@ return {
   },
   {
     'github/copilot.vim',
+    lazy = true,
   },
   -- {
   --   'CopilotC-Nvim/CopilotChat.nvim',
