@@ -77,7 +77,7 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
 
 vim.api.nvim_create_autocmd('ColorScheme', {
-  pattern = 'vscode',
+  pattern = 'rose-pine',
   -- group = ...,
   callback = function()
     vim.api.nvim_set_hl(0, 'CopilotSuggestion', {
@@ -94,13 +94,13 @@ return {
   {
     'tpope/vim-fugitive',
   },
-  -- {
-  --   'rose-pine/neovim',
-  --   name = 'rose-pine',
-  --   config = function()
-  --     vim.cmd 'colorscheme rose-pine'
-  --   end,
-  -- },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      vim.cmd 'colorscheme rose-pine'
+    end,
+  },
   -- {
   --   'folke/tokyonight.nvim',
   --   priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -121,16 +121,6 @@ return {
   --     vim.cmd 'colorscheme catppuccin'
   --   end,
   -- },
-  {
-    'Mofiqul/vscode.nvim',
-    name = 'vscode',
-    config = function()
-      require('vscode').setup {
-        transparent = true,
-      }
-      vim.cmd 'colorscheme vscode'
-    end,
-  },
   {
     'nvim-tree/nvim-web-devicons',
   },
