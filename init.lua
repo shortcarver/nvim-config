@@ -844,6 +844,40 @@ require('lazy').setup({
       -- set use_icons to true if you have a Nerd Font
       statusline.setup { use_icons = vim.g.have_nerd_font }
 
+      -- Match the Rosé Pine "main" palette used by the tmux window tabs.
+      local function apply_statusline_colors()
+        local colors = {
+          base = '#191724',
+          text = '#e0def4',
+          subtle = '#908caa',
+          love = '#eb6f92',
+          gold = '#f6c177',
+          rose = '#ebbcba',
+          pine = '#31748f',
+          foam = '#9ccfd8',
+          iris = '#c4a7e7',
+        }
+
+        local set_hl = vim.api.nvim_set_hl
+        set_hl(0, 'MiniStatuslineModeNormal', { fg = colors.gold, bg = colors.base, bold = true })
+        set_hl(0, 'MiniStatuslineModeInsert', { fg = colors.foam, bg = colors.base, bold = true })
+        set_hl(0, 'MiniStatuslineModeVisual', { fg = colors.iris, bg = colors.base, bold = true })
+        set_hl(0, 'MiniStatuslineModeReplace', { fg = colors.love, bg = colors.base, bold = true })
+        set_hl(0, 'MiniStatuslineModeCommand', { fg = colors.rose, bg = colors.base, bold = true })
+        set_hl(0, 'MiniStatuslineModeOther', { fg = colors.pine, bg = colors.base, bold = true })
+        set_hl(0, 'MiniStatuslineDevinfo', { fg = colors.rose, bg = colors.base })
+        set_hl(0, 'MiniStatuslineFilename', { fg = colors.text, bg = colors.base })
+        set_hl(0, 'MiniStatuslineFileinfo', { fg = colors.iris, bg = colors.base })
+        set_hl(0, 'MiniStatuslineInactive', { fg = colors.subtle, bg = colors.base })
+      end
+
+      apply_statusline_colors()
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        group = vim.api.nvim_create_augroup('RosePineMiniStatusline', { clear = true }),
+        callback = apply_statusline_colors,
+        desc = 'Keep mini.statusline consistent with the tmux tabs',
+      })
+
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
       -- cursor location to LINE:COLUMN
@@ -858,6 +892,7 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     build = ':TSUpdate',
     -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -904,7 +939,7 @@ require('lazy').setup({
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   -- { import = 'custom.plugins' },
   require 'custom.plugins.init',
-  require 'custom.plugins.debug',
+  -- require 'custom.plugins.debug',
   require 'custom.plugins.oil',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
