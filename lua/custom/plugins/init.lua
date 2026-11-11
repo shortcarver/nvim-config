@@ -5,6 +5,8 @@
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 10
 vim.opt.cursorline = true
+-- Keep the cursor visible without covering the character underneath.
+vim.opt.guicursor:append 'a:Cursor/lCursor,n-v-c-sm:hor20'
 vim.opt.colorcolumn = '80,120'
 vim.opt.tabstop = 4
 
@@ -98,6 +100,18 @@ return {
     'rose-pine/neovim',
     name = 'rose-pine',
     config = function()
+      require('rose-pine').setup {
+        -- Solid backgrounds and dark text keep highlights distinct from syntax colors.
+        highlight_groups = {
+          Cursor = { fg = 'base', bg = '#ffffff', inherit = false },
+          lCursor = { link = 'Cursor', inherit = false },
+          Visual = { fg = 'base', bg = 'iris', inherit = false },
+          VisualNOS = { link = 'Visual', inherit = false },
+          Search = { fg = 'base', bg = 'foam', inherit = false },
+          CurSearch = { fg = 'base', bg = 'gold', bold = true, inherit = false },
+          IncSearch = { link = 'CurSearch', inherit = false },
+        },
+      }
       vim.cmd 'colorscheme rose-pine'
     end,
   },
